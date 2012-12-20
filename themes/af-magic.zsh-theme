@@ -26,8 +26,12 @@ RPS1='${return_code}'
 eval my_gray='$FG[237]'
 eval my_orange='$FG[214]'
 
+if [ -z $DEFAULT_USER ]; then
+    DEFAULT_USER='%n@%m'
+fi
+
 # right prompt
-RPROMPT='$my_gray%n@%m%{$reset_color%}%'
+RPROMPT='$my_gray$DEFAULT_USER%{$reset_color%}%'
 
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075](branch:"
